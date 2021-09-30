@@ -1,0 +1,29 @@
+.container {
+    width: 1140px;
+    height: 712px;
+    background-image: url(res/background.jpg);
+}
+
+section {
+    height: 712px;
+}
+
+#weatherDetail {
+    background-color: white;
+    opacity: .6;
+}
+
+.tempDetail {
+    height: 20px;
+    font-size: 1.2em;
+    padding: 1em;
+}
+
+#map {
+    display: contents;
+}
+
+#city {
+    color: white;
+}
+

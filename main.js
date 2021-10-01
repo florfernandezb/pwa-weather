@@ -2,7 +2,6 @@
 let GOOGLE_API_KEY = "AIzaSyBo6hfkrJYKHFbtGrPuhcoQldA26su_6mA";
 
 function setupViews(data) {
-  deleteLastSearch();
   createWeatherDetail(data);
   setupCity(data);
   setupDate(data.weather[0]);
@@ -11,7 +10,6 @@ function setupViews(data) {
 }
 
 function createWeatherDetail(data) {
-  console.log(data);
   let container = document.getElementById("weatherDetail");
 
   let div = document.createElement("div");
@@ -38,12 +36,12 @@ function createWeatherDetail(data) {
   let windSpeed = document.createElement("p");
   windSpeed.setAttribute("class", "tempDetail");
 
-  maxTemp.innerHTML = `Maximum temperature: <span>${data.main.temp_max}°</span>`;
-  minTemp.innerHTML = `Minimum temperature: <span>${data.main.temp_min}°</span>`;
+  maxTemp.innerHTML = `Max temperature: <span>${data.main.temp_max}°</span>`;
+  minTemp.innerHTML = `Min temperature: <span>${data.main.temp_min}°</span>`;
   humidity.innerHTML = `Humidity: <span>${data.main.humidity}°</span>`;
   feelsLike.innerHTML = `Feels like: <span>${data.main.feels_like}°</span>`;
-  pressure.innerHTML = `Prssure: <span>${data.main.pressure}°</span>`;
-  windSpeed.innerHTML = `Wind speed: <span>${data.wind.speed} km/h</span>`;
+  pressure.innerHTML = `Pressure: <span>${data.main.pressure} Hp</span>`;
+  windSpeed.innerHTML = `Wind speed: <span>${data.wind.speed} Hm/H</span>`;
 
   div.append(img, maxTemp, minTemp, humidity, feelsLike, pressure, windSpeed);
   container.appendChild(div);
@@ -54,10 +52,10 @@ function setupCity(data) {
 
   let div = document.createElement("div");
   div.setAttribute("id", "city");
-  div.setAttribute("class", "col-12");
+  div.setAttribute("class", "col-4");
 
   let temperature = document.createElement("p");
-  temperature.textContent = `Temperature: ${data.main.temp}°`;
+  temperature.innerHTML = `<span id="temp">${data.main.temp}°</span>`;
 
   let city = document.createElement("h2");
   city.textContent = data.name;
@@ -72,7 +70,7 @@ function setupDate(data) {
 
   let div = document.createElement("div");
   div.setAttribute("id", "date");
-  div.setAttribute("class", "col-12");
+  div.setAttribute("class", "col-4");
 
   let today = document.createElement("p");
   today.textContent = date.toDateString();
@@ -100,25 +98,13 @@ function createMap(data) {
   container.appendChild(div);
 }
 
-function deleteLastSearch() {
-  let divDetails = document.getElementById("details");
-  let divDate = document.getElementById("date");
-  let divCity = document.getElementById("city");
-  let divMap = document.getElementById("map");
-  if (divDetails && divDate && divCity && divMap) {
-    divDetails.remove();
-    divDate.remove();
-    divCity.remove();
-    divMap.remove();
-  }
-}
-
 function setBackgroundColor(weather) {
   let thunderstorm = "#272838";
   let drizzle = "#a5a5a5";
   let snow = "#acbbce";
   let clear = "#00b4d8";
   let clouds = "#cccccc";
+  let other = "#EEDDEE";
   let body = document.getElementById("body");
 
   switch (weather) {
@@ -138,23 +124,31 @@ function setBackgroundColor(weather) {
     case "Clear":
       body.style.backgroundColor = clear;
       break;
+    default:
+      body.style.backgroundColor = other;
   }
-  console.log(weather);
 }
 
 function showError(message) {
-  let div = document.getElementById('input-error')
-  
-  let msg = document.createElement('p')
+  let div = document.getElementById("input-error");
+
+  let msg = document.createElement("p");
   msg.setAttribute("id", "error");
   msg.setAttribute("class", "col-12");
 
-  msg.textContent = message
+  msg.textContent = message;
 
-  div.appendChild(msg)
+  div.appendChild(msg);
 }
 
 function removeError() {
-  let error = document.getElementById('error')
-  error.remove()
+  let error = document.getElementById("error");
+  error.remove();
+}
+
+function validateError() {
+  let error = document.getElementById("error");
+  if (error) {
+    removeError();
+  }
 }

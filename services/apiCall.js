@@ -15,10 +15,10 @@ function getCity() {
     let degrees = document.getElementById('degrees');
 
     if(input.value != "") {
-        removeError()
+        validateError()
         getApiResponse(input.value, degrees.value);
     } else {
-        showError("Please enter a city")
+        showError("Please enter a city");
     }
     
 }
@@ -27,13 +27,14 @@ function getApiResponse(city, degrees) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${degrees}`)
     .then(function(res){
         if (!res.ok){
-            return showError("Please enter a valid city")
+            return showError("Please enter a valid city");
         }
+        validateError()
         return res.json(); 
     })
     .then(function(data){
-        console.log("data" + data)
-        setupViews(data)
+        deleteLastSearch();
+        setupViews(data);
         saveResults(data);
     })
     .catch(function(error){
@@ -44,3 +45,17 @@ function getApiResponse(city, degrees) {
 function saveResults(result) {
     localStorage.setItem('responseWeather', JSON.stringify(result));
 }
+
+function deleteLastSearch() {
+    let divDetails = document.getElementById("details");
+    let divDate = document.getElementById("date");
+    let divCity = document.getElementById("city");
+    let divMap = document.getElementById("map");
+  
+    if (divDetails && divDate && divCity && divMap) {
+      divDetails.remove();
+      divDate.remove();
+      divCity.remove();
+      divMap.remove();
+    }
+  }

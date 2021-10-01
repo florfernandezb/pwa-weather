@@ -14,6 +14,10 @@ main {
     min-height: calc(100vh - 48px - 152px) ;
 }
 
+body {
+    background-color: #EEDDEE;
+}
+
 #city, #date {
     color: white;
 }
@@ -75,6 +79,7 @@ span {
 
 #date {
     text-transform: capitalize;
+    padding: 1em;
 }
 
 iframe {
@@ -88,8 +93,16 @@ footer{
     color: white;
 }
 
+footer div p {
+    text-align: center;
+}
+
 #input-error p{
     margin: 0;
     text-align: center;
     color: red;
+}
+
+#temp {
+    font-size: 2em;
 }

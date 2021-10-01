@@ -33,7 +33,7 @@ body, nav {
 }
 
 #weather-row {
-    padding: 2em;
+    padding: 1em;
     min-height: calc(100vh - 48px - 152px - 320px);
 }
 

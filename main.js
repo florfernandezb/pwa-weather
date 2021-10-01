@@ -1,6 +1,15 @@
 "use-strict";
 let GOOGLE_API_KEY = "AIzaSyBo6hfkrJYKHFbtGrPuhcoQldA26su_6mA";
 
+function setupViews(data) {
+  deleteLastSearch();
+  createWeatherDetail(data);
+  setupCity(data);
+  setupDate(data.weather[0]);
+  createMap(data.coord);
+  setBackgroundColor(data.weather[0].main);
+}
+
 function createWeatherDetail(data) {
   console.log(data);
   let container = document.getElementById("weatherDetail");
@@ -80,10 +89,10 @@ function createMap(data) {
 
   let div = document.createElement("div");
   div.setAttribute("id", "map");
-  div.setAttribute('class', 'row')
+  div.setAttribute("class", "row");
 
   let iframe = document.createElement("iframe");
-  iframe.setAttribute('class', 'col-12 p-0')
+  iframe.setAttribute("class", "col-12 p-0");
   iframe.frameborder = "0";
   iframe.src = `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_API_KEY}&q=${data.lat},${data.lon}`;
 
@@ -109,7 +118,7 @@ function setBackgroundColor(weather) {
   let drizzle = "#a5a5a5";
   let snow = "#acbbce";
   let clear = "#00b4d8";
-  let clouds = '#cccccc';
+  let clouds = "#cccccc";
   let body = document.getElementById("body");
 
   switch (weather) {
@@ -131,4 +140,21 @@ function setBackgroundColor(weather) {
       break;
   }
   console.log(weather);
+}
+
+function showError(message) {
+  let div = document.getElementById('input-error')
+  
+  let msg = document.createElement('p')
+  msg.setAttribute("id", "error");
+  msg.setAttribute("class", "col-12");
+
+  msg.textContent = message
+
+  div.appendChild(msg)
+}
+
+function removeError() {
+  let error = document.getElementById('error')
+  error.remove()
 }

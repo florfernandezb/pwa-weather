@@ -14,7 +14,6 @@ main {
     min-height: calc(100vh - 48px - 152px) ;
 }
 
-
 #city, #date {
     color: white;
 }
@@ -89,3 +88,8 @@ footer{
     color: white;
 }
 
+#input-error p{
+    margin: 0;
+    text-align: center;
+    color: red;
+}

@@ -24,6 +24,7 @@ function getCity() {
     validateError();
     getApiResponse(input.value, degrees.value);
   } else {
+    validateError();
     showError("Please enter a city");
   }
 }
@@ -34,6 +35,7 @@ function getApiResponse(city, degrees) {
   )
     .then(function (res) {
       if (!res.ok) {
+        validateError()
         return showError("Please enter a valid city");
       }
       validateError();

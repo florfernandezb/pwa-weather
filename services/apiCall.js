@@ -23,9 +23,9 @@ function getApiResponse(city, degrees) {
         return res.json(); 
     })
     .then(function(data){
-    
+        console.log("data" + data)
         deleteLastSearch();
-        createWeatherDetail("data: " + data);
+        createWeatherDetail(data);
         setupCity(data);
         setupDate(data.weather[0]);
         createMap(data.coord);

@@ -1,5 +1,4 @@
 "use-strict";
-let GOOGLE_API_KEY = "AIzaSyBo6hfkrJYKHFbtGrPuhcoQldA26su_6mA";
 
 function createWeatherDetail(data) {
   console.log(data);

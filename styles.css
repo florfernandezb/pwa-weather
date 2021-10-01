@@ -34,6 +34,7 @@ body, nav {
 
 #weather-row {
     padding: 2em;
+    min-height: calc(100vh - 48px - 152px - 320px);
 }
 
 #weatherDetail {

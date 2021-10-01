@@ -52,7 +52,7 @@ function setupCity(data) {
 
   let div = document.createElement("div");
   div.setAttribute("id", "city");
-  div.setAttribute("class", "col-4");
+  div.setAttribute("class", "col-4 my-auto");
 
   let temperature = document.createElement("p");
   temperature.innerHTML = `<span id="temp">${data.main.temp}°</span>`;
@@ -70,7 +70,7 @@ function setupDate(data) {
 
   let div = document.createElement("div");
   div.setAttribute("id", "date");
-  div.setAttribute("class", "col-4");
+  div.setAttribute("class", "col-4 my-auto");
 
   let today = document.createElement("p");
   today.textContent = date.toDateString();

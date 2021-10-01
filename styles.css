@@ -14,7 +14,7 @@ main {
     min-height: calc(100vh - 48px - 152px) ;
 }
 
-body {
+body, nav {
     background-color: #EEDDEE;
 }
 

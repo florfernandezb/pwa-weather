@@ -102,30 +102,37 @@ function setBackgroundColor(weather) {
   let thunderstorm = "#272838";
   let drizzle = "#a5a5a5";
   let snow = "#acbbce";
-  let clear = "#00b4d8";
-  let clouds = "#cccccc";
+  let clear = "#bde0fe";
+  let clouds = "#edede8";
   let other = "#EEDDEE";
   let body = document.getElementById("body");
+  let temp = document.getElementById("temp");
 
   switch (weather) {
     case "Clouds":
       body.style.backgroundColor = clouds;
+      temp.style.color = clouds;
       break;
     case "Thunderstorm":
       body.style.backgroundColor = thunderstorm;
+      temp.style.color = thunderstorm;
       break;
     case "Drizzle":
     case "Rain":
       body.style.backgroundColor = drizzle;
+      temp.style.color = drizzle;
       break;
     case "Snow":
       body.style.backgroundColor = snow;
+      temp.style.color = snow;
       break;
     case "Clear":
       body.style.backgroundColor = clear;
+      temp.style.color = clear;
       break;
     default:
       body.style.backgroundColor = other;
+      temp.style.color = other;
   }
 }
 

@@ -1,5 +1,5 @@
 const API_KEY = "db2352834ea4c64b2aa0d35e4b49e033";
-
+const input = document.getElementById("input-search");
 const lastSearch = JSON.parse(localStorage.getItem("responseWeather"));
 
 if (lastSearch != null) {
@@ -10,8 +10,14 @@ if (lastSearch != null) {
   setBackgroundColor(lastSearch.weather[0].main);
 }
 
+input.addEventListener("keyup", function (event) {
+  if (event.code === "Enter") {
+    event.preventDefault();
+    getCity();
+  }
+});
+
 function getCity() {
-  let input = document.getElementById("input-search");
   let degrees = document.getElementById("degrees");
 
   if (input.value != "") {

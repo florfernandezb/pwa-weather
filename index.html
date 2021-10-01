@@ -1,67 +1,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css">
 
-  <title>Florencia Fernández Bugna | DWN2A | PWA</title>
-  <link rel="icon" type="image/png" href="res/sun.png" />
+	<title>Florencia Fernández Bugna | DWN2A | PWA</title>
+	<link rel="icon" type="image/png" href="res/sun.png" />
 </head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <h1 class="navbar-brand">My weather app</h1>
-        <div class="d-flex">
-          </form>
-          <input class="form-control me-2" id="input-search" value="London" type="search" placeholder="Search"
-            aria-label="Search">
-          <button class="btn btn-outline-success" id="search-button" onclick="getCity()" type="submit">Search</button>
-          <label for="degrees"></label>
-          <select name="degrees" id="degrees">
-            <option value="metric">Celsius</option>
-            <option value="imperial">Fahrenheit </option>
-            <option value="">Kelvin</option>
-          </select>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    <div class="row">
-      <div class="col-1">1</div>
-      <div class="col-1">2</div>
-      <div class="col-1">3</div>
-      <div class="col-1">4</div>
-      <div class="col-1">5</div>
-      <div class="col-1">6</div>
-      <div class="col-1">7</div>
-      <div class="col-1">8</div>
-      <div class="col-1">9</div>
-      <div class="col-1">0</div>
-      <div class="col-1">1</div>
-      <div class="col-1">2</div>
-    </div>
+<body id="body">
+	<header class="container">
+		<nav class="row navbar navbar-light bg-light align-items-center">
+			<div class="col-12 col-md-4">
+				<h1>My weather app</h1>
+			</div>
+			<div class="col-12 col-md-8">
+				<div class="row">
+					<select class="col-5 col-md-4 " name="degrees" id="degrees">
+						<option value="metric">Celsius</option>
+						<option value="imperial">Fahrenheit </option>
+						<option value="">Kelvin</option>
+					</select>
+					<input class="col-5 col-md-6 mx-1" id="input-search" value="" type="search"
+						placeholder="Search" aria-label="Search">
+					<button class="btn col-1 col-md-1" id="search-button" onclick="getCity()"
+						type="submit">Search</button>
 
-    <section class="cards row">
+				</div>
 
-      <div class="col-8" id="weather"></div>
-      <div class="col-4" id="weatherDetail">
-      </div>
-    </section>
-  </main>
-  <footer>
+			</div>
+		</nav>
+	</header>
+	<main class="container">
+		<section class="cards row align-items-center">
+			<div class="col-12 col-md-8" id="weather">
+				<div class="row" id="weather-row">
 
-  </footer>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="services/apiCall.js">
-    getApiResponse()
-  </script>
+				</div>
+			</div>
+			<div class="col-12 col-md-4" id="weatherDetail"></div>
+		</section>
+	</main>
+	<footer class="container">
+		<div class="row justify-content-center">
+			<p class="col-8">Este sitio es un trabajo práctico para la materia Aplicaciones web progresivas del tercer cuatrimestre de
+				la Escuela Da
+				Vinci. </p>
+		</div>	
+		<div class="row justify-content-center">
+			<p class="col-4">Florencia Fernández Bugna</p>
+			<p class="col-4">&copy; Da Vinci - 2021</p>
+		</div>	
+			
+		
+
+	</footer>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="services/apiCall.js">
+		getApiResponse()
+	</script>
 </body>
 
 </html>

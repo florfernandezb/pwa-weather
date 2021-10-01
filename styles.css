@@ -1,29 +1,91 @@
-.container {
-    width: 1140px;
-    height: 712px;
-    background-image: url(res/background.jpg);
+/* Paleta utilizada para el background de acuerdo al clima
+https://coolors.co/272838-a5a5a5-acbbce-00b4d8-cccccc */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-section {
-    height: 712px;
+main {
+    background-image: url(res/background.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: calc(100vh - 48px - 152px) ;
+}
+
+
+#city, #date {
+    color: white;
+}
+
+#details {
+    text-align: center;
+}
+
+#weather {
+    min-height: calc(100vh - 48px - 152px) ;
+    padding: 0;
+    text-align: center;
+}
+
+#weather-row {
+    padding: 2em;
 }
 
 #weatherDetail {
+    min-height: calc(100vh - 48px - 152px) ;
     background-color: white;
-    opacity: .6;
+    opacity: .9;
 }
 
 .tempDetail {
     height: 20px;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 1em;
+    color: black;
+    text-align: left;
 }
 
 #map {
     display: contents;
 }
 
-#city {
+h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+    text-align: center;
+}
+
+span {
+    font-weight: bold;
+}
+
+#search-button {
+    width: 29px;
+    height: 31px;
+    background: no-repeat url(res/search.png);
+    font-size: 0;
+}
+
+#input-search, #degrees {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+}
+
+#date {
+    text-transform: capitalize;
+}
+
+iframe {
+    border: none;
+    height: 320px;
+}
+
+footer{
+    padding: 1.5em;
+    background-color: #272838;
     color: white;
 }
 
